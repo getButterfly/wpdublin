@@ -34,7 +34,7 @@ function wpd_get_site_details() {
     }
 
     $wpd_wp_version      = $wp_version; // WordPress version
-    $wpd_wp_theme        = $wpd_current_theme->get('Name') . ' ' . $wpd_current_theme->get('Version') . ' (<code>' . get_template_directory_uri() . '</code>)'; // Current theme
+    $wpd_wp_theme        = $wpd_current_theme->get('Name') . ' <code>' . $wpd_current_theme->get('Version') . '</code> (<code>' . get_template_directory_uri() . '</code>)'; // Current theme
     $wpd_wp_memory       = WP_MEMORY_LIMIT; // Memory limit
     $wpd_wp_db_size      = $wpd_db_size; // Database size
     $wpd_server_version  = $_SERVER['SERVER_SOFTWARE']; // Server software
@@ -63,18 +63,18 @@ function wpd_get_site_details() {
     <ul>
         <li>WordPress Address (URL): ' . get_option('siteurl') . '</li>
         <li>Site Address (URL): ' . home_url() . '</li>
-        <li>WordPress version: ' . $wpd_wp_version . '</li>
+        <li>WordPress version: <code>' . $wpd_wp_version . '</code></li>
         <li>Current theme: ' . $wpd_wp_theme . '</li>
-        <li>WordPress memory limit: ' . $wpd_wp_memory . '</li>
-        <li>WordPress database size: ' . $wpd_wp_db_size . '</li>
-        <li>Server software: ' . $wpd_server_version . '</li>
-        <li>Server PHP version: ' . $wpd_php_version . '</li>
-        <li>Server MySQL version: ' . $wpd_mysql_version . '</li>
-        <li>Server protocol: ' . $wpd_server_protocol . '</li>
-        <li>Server certificate: ' . $wpd_server_ssl . '</li>
-        <li>Server GZip support: ' . $wpd_has_gzip . '</li>
-        <li>Server CPU: ' . $wpd_server_cpu . '</li>
-        <li>Active plugins: ' . $wpd_active_plugins . '</li>
+        <li>WordPress memory limit: <code>' . $wpd_wp_memory . '</code></li>
+        <li>WordPress database size: <code>' . $wpd_wp_db_size . '</code></li>
+        <li>Server software: <code>' . $wpd_server_version . '</code></li>
+        <li>Server PHP version: <code>' . $wpd_php_version . '</code></li>
+        <li>Server MySQL version: <code>' . $wpd_mysql_version . '</code></li>
+        <li>Server protocol: <code>' . $wpd_server_protocol . '</code></li>
+        <li>Server certificate: <code>' . $wpd_server_ssl . '</code></li>
+        <li>Server GZip support: <code>' . $wpd_has_gzip . '</code></li>
+        <li>Server CPU: <code>' . $wpd_server_cpu . '</code></li>
+        <li>Active plugins: <code>' . $wpd_active_plugins . '</li>
     </ul>';
 
     /*
