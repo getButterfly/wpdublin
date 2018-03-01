@@ -5,7 +5,7 @@ Plugin URI: https://wpdublin.com/
 Description: Set a primary category for your (custom) posts and query them in your template using native WordPress queries.
 Author: Ciprian Popescu
 Author URI: https://wpdublin.com/
-Version: 1.0.0
+Version: 1.0.2
 Text Domain: wpdublin
 
 WordPress Dublin
@@ -30,7 +30,7 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
 /**
  * Include updater
  */
-require_once IP_PLUGIN_PATH . '/classes/Updater.php';
+include 'classes/Updater.php';
 
 if (is_admin()) {
     $config = array(
