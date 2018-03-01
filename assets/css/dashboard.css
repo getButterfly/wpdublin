@@ -1,0 +1,26 @@
+.wpd-card-welcome {
+    background-color: #FFFFFF;
+    padding: 32px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05);
+    line-height: 1.75;
+    max-width: 720px;
+    margin: 48px auto 0 auto;
+}
+.wpd-card-welcome-element {
+    margin: 0 0 24px 0;
+}
+.wpd-card-welcome-element h2 {
+    font-size: 48px;
+    font-weight: 300;
+    color: #616161;
+    padding: 0;
+    margin: 16px 0;
+}
+.wpd-card-welcome-element-title {
+    font-weight: 500;
+    font-size: 120%;
+    color: #616161;
+}
+.wpd-card-welcome-element-body {
+    color: #A0A0A0;
+}
