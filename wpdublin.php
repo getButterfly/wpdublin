@@ -5,7 +5,7 @@ Plugin URI: https://wpdublin.com/
 Description: Set a primary category for your (custom) posts and query them in your template using native WordPress queries.
 Author: Ciprian Popescu
 Author URI: https://wpdublin.com/
-Version: 1.0.2
+Version: 1.0.3
 Text Domain: wpdublin
 
 WordPress Dublin
@@ -32,6 +32,11 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
  */
 include 'classes/Updater.php';
 
+/**
+ * Include recommendations
+ */
+include 'classes/class-tgm-plugin-activation.php';
+
 if (is_admin()) {
     $config = array(
         'slug' => plugin_basename(__FILE__),
@@ -39,9 +44,59 @@ if (is_admin()) {
         'github_url' => 'https://github.com/getButterfly/wpdublin',
         'requires' => '4.6',
         'tested' => '4.9.4',
-        'readme' => 'README.MD',
+        'readme' => 'readme.txt',
     );
     new WP_GitHub_Updater($config);
+}
+
+add_action('tgmpa_register', 'wpd_register_required_plugins');
+
+function wpd_register_required_plugins() {
+	$plugins = array(
+		array(
+			'name'      => 'WP Super Cache',
+			'slug'      => 'wp-super-cache',
+			'required'  => false,
+		),
+		array(
+			'name'      => 'WP Sweep',
+			'slug'      => 'wp-sweep',
+			'required'  => false,
+		),
+		array(
+			'name'      => 'WP Mail From II',
+			'slug'      => 'wp-mailfrom-ii',
+			'required'  => false,
+		),
+		array(
+			'name'      => 'PHP Compatibility Checker',
+			'slug'      => 'php-compatibility-checker',
+			'required'  => false,
+		),
+	);
+
+	$config = array(
+		'id'           => 'wpdublin',                 // Unique ID for hashing notices for multiple instances of TGMPA.
+		'default_path' => '',                      // Default absolute path to bundled plugins.
+		'menu'         => 'tgmpa-install-plugins', // Menu slug.
+		'parent_slug'  => 'plugins.php',            // Parent menu slug.
+		'capability'   => 'manage_options',    // Capability needed to view plugin install page, should be a capability associated with the parent menu used.
+		'has_notices'  => true,                    // Show admin notices or not.
+		'dismissable'  => true,                    // If false, a user cannot dismiss the nag message.
+		'dismiss_msg'  => '',                      // If 'dismissable' is false, this message will be output at top of nag.
+		'is_automatic' => false,                   // Automatically activate plugins after installation or not.
+		'message'      => '',                      // Message to output right before the plugins table.
+        'strings'      => array(
+            'notice_can_install_recommended'  => _n_noop(
+                /* translators: 1: plugin name(s). */
+                'WPDublin recommends the following plugin: %1$s.',
+                'WPDublin recommends the following plugins: %1$s.',
+                'tgmpa'
+            )
+        ),
+    );
+
+	tgmpa($plugins, $config);
 }
 
 /**

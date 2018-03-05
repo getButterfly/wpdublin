@@ -3,7 +3,7 @@ Contributors: butterflymedia
 Tags: wordpress, dublin, assistance, monitor
 Requires at least: 4.6
 Tested up to: 4.9.4
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -14,6 +14,9 @@ WordPress Dublin assistance plugin for members of https://wpdublin.com/
 Private WordPress Dublin assistance plugin for members of https://wpdublin.com/.
 
 == Changelog ==
+
+= 1.0.3 =
+* UPDATE: Added recommendations
 
 = 1.0.2 =
 * FIX: Fixed updater path
